@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,8 +7,22 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {useDispatch, useSelector } from "react-redux";
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { useDispatch, useSelector } from "react-redux";
 import { loaderUsers } from "../../redux/action/actions";
+import { deleteUser } from "../../redux/action/actions";
+const useButtonStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -46,12 +60,20 @@ const useStyles = makeStyles({
     },
 });
 function Home() {
+
     const classes = useStyles();
+    const buttonStyles = useButtonStyles()
     let dispatch = useDispatch();
-    const {users} = useSelector(state => state.data)
-     useEffect(() => {
-         dispatch(loaderUsers())
-     }, []);
+    const { users } = useSelector(state => state.data)
+    useEffect(() => {
+        dispatch(loaderUsers())
+    }, []);
+
+    const handleDelete = (id)=> {
+       if(window.confirm("Are you sure you want to delete this users?")) {
+         dispatch(deleteUser(id))
+       }
+    }
     return (
         <div>
             <TableContainer component={Paper}>
@@ -66,18 +88,25 @@ function Home() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-          {users && users.map((user) => (
-            <StyledTableRow key={user.id}>
-              <StyledTableCell component="th" scope="row">
-                {user.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{user.email}</StyledTableCell>
-              <StyledTableCell align="right">{user.contact}</StyledTableCell>
-              <StyledTableCell align="right">{user.address}</StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
+                        {users && users.map((user) => (
+                            <StyledTableRow key={user.id}>
+                                <StyledTableCell component="th" scope="row">
+                                    {user.name}
+                                </StyledTableCell>
+                                <StyledTableCell align="center">{user.email}</StyledTableCell>
+                                <StyledTableCell align="center">{user.contact}</StyledTableCell>
+                                <StyledTableCell align="center">{user.address}</StyledTableCell>
+                                <StyledTableCell align="center">
+                                   <div className={buttonStyles.root}>
+                                   <ButtonGroup variant="contained"  aria-label="contained primary button group">
+                                        <Button onClick={()=> handleDelete(user.id)} style={{marginRight: "5px"}} color="secondary">Delete</Button>
+                                        <Button color="primary">Update</Button>
+                                    </ButtonGroup>
+                                   </div>
+                                </StyledTableCell>
+                            </StyledTableRow>
+                        ))}
+                    </TableBody>
                 </Table>
             </TableContainer>
         </div>
