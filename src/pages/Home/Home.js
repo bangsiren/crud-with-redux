@@ -14,14 +14,14 @@ import { loaderUsers } from "../../redux/action/actions";
 import { deleteUser } from "../../redux/action/actions";
 const useButtonStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > *': {
+            margin: theme.spacing(1),
+        },
     },
-  }));
+}));
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -69,13 +69,14 @@ function Home() {
         dispatch(loaderUsers())
     }, []);
 
-    const handleDelete = (id)=> {
-       if(window.confirm("Are you sure you want to delete this users?")) {
-         dispatch(deleteUser(id))
-       }
+    const handleDelete = (id) => {
+        if (window.confirm("Are you sure you want to delete this users?")) {
+            dispatch(deleteUser(id))
+        }
     }
     return (
         <div>
+            <Button color="primary">Update</Button>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
@@ -97,12 +98,12 @@ function Home() {
                                 <StyledTableCell align="center">{user.contact}</StyledTableCell>
                                 <StyledTableCell align="center">{user.address}</StyledTableCell>
                                 <StyledTableCell align="center">
-                                   <div className={buttonStyles.root}>
-                                   <ButtonGroup variant="contained"  aria-label="contained primary button group">
-                                        <Button onClick={()=> handleDelete(user.id)} style={{marginRight: "5px"}} color="secondary">Delete</Button>
-                                        <Button color="primary">Update</Button>
-                                    </ButtonGroup>
-                                   </div>
+                                    <div className={buttonStyles.root}>
+                                        <ButtonGroup variant="contained" aria-label="contained primary button group">
+                                            <Button onClick={() => handleDelete(user.id)} style={{ marginRight: "5px" }} color="secondary">Delete</Button>
+                                            <Button color="primary">Update</Button>
+                                        </ButtonGroup>
+                                    </div>
                                 </StyledTableCell>
                             </StyledTableRow>
                         ))}
