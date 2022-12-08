@@ -10,8 +10,9 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useDispatch, useSelector } from "react-redux";
-import { loaderUsers } from "../../redux/action/actions";
-import { deleteUser } from "../../redux/action/actions";
+import { loaderUsers } from "../redux/action/actions";
+import { deleteUser } from "../redux/action/actions";
+import { useNavigate } from "react-router-dom";
 const useButtonStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -60,11 +61,12 @@ const useStyles = makeStyles({
     },
 });
 function Home() {
-
+     const navigate = useNavigate()
     const classes = useStyles();
     const buttonStyles = useButtonStyles()
     let dispatch = useDispatch();
     const { users } = useSelector(state => state.data)
+    
     useEffect(() => {
         dispatch(loaderUsers())
     }, []);
@@ -73,11 +75,11 @@ function Home() {
         if (window.confirm("Are you sure you want to delete this users?")) {
             dispatch(deleteUser(id))
         }
-    }
-    return (
+    } 
+    return(
         <div>
             <div className={buttonStyles.root}>
-                <Button variant="contained" color="primary">Add User</Button>
+                <Button onClick={()=>navigate('/addUser')} variant="contained" color="primary">Add User</Button>
             </div>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
