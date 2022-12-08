@@ -76,7 +76,9 @@ function Home() {
     }
     return (
         <div>
-            <Button color="primary">Update</Button>
+            <div className={buttonStyles.root}>
+                <Button variant="contained" color="primary">Add User</Button>
+            </div>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
