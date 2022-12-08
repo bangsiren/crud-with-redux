@@ -11,7 +11,7 @@ const usersReducers = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.payload,
-                loading: false
+                loading:
             }
         default:
             return state;
