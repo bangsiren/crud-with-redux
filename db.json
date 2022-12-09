@@ -6,6 +6,20 @@
       "email": "addam@gmail.com",
       "contact": "836767",
       "id": 1
+    },
+    {
+      "name": "Bangsi",
+      "email": "bangsir61@gmail.com",
+      "contact": "65326565",
+      "address": "Ange Raphaël",
+      "id": 2
+    },
+    {
+      "name": "Sammy",
+      "email": "sammy",
+      "contact": "62356562658",
+      "address": "Neuvelle Route ",
+      "id": 3
     }
   ]
 }

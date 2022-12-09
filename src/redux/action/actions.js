@@ -6,6 +6,9 @@ const getUsers = (users)=> ({
 });
 const userDeleted = ()=> ({
     type: types.DELETE_USER
+});
+const userAdded = ()=> ({
+    type: types.ADD_USER
 })
 export const loaderUsers  = () => {
     return function (dispatch) {
@@ -20,6 +23,16 @@ export const deleteUser = (id) => {
        axios.delete(`${process.env.REACT_APP_API}/${id}`).then((resp) =>{
         console.log("data", resp);
         dispatch(userDeleted());
+        dispatch(loaderUsers())
+       }).catch(error => console.log(error));
+    }
+}
+
+export const addUser = (user) => {
+    return function (dispatch) {
+       axios.post(`${process.env.REACT_APP_API}`, user).then((resp) =>{
+        console.log("data", resp);
+        dispatch(userAdded());
         dispatch(loaderUsers())
        }).catch(error => console.log(error));
     }
