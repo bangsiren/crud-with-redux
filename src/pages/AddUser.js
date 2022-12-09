@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
@@ -30,6 +32,7 @@ function AddUser() {
                 <TextField id="standard-basic" label="Email" value={email} type="email" /> <br></br>
                 <TextField id="standard-basic" label="Contact" value={contact} type="number" /> <br></br>
                 <TextField id="standard-basic" label="Address" value={address} type="text" />
+                <Button  variant="contained" color="primary">Add User</Button>
             </form>
         </div>
     );
