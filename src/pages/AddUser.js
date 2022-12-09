@@ -32,7 +32,7 @@ function AddUser() {
                 <TextField id="standard-basic" label="Email" value={email} type="email" /> <br></br>
                 <TextField id="standard-basic" label="Contact" value={contact} type="number" /> <br></br>
                 <TextField id="standard-basic" label="Address" value={address} type="text" />
-                <Button  variant="contained" color="primary">Add User</Button>
+                <Button variant="contained" type='submit' color="primary">Add User</Button>
             </form>
         </div>
     );
