@@ -10,8 +10,9 @@ const userDeleted = ()=> ({
 const userAdded = ()=> ({
     type: types.ADD_USER
 });
-const getUer = ()=> ({
-    type: types.GET_SINGLE_USER
+const getUer = (user)=> ({
+    type: types.GET_SINGLE_USER,
+    payload: user
 });
 
 export const loaderUsers  = () => {

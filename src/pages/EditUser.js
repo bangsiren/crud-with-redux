@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useDispatch } from 'react-redux';
-import { addUser } from '../redux/action/actions';
+import { addUser, getSingleUser } from '../redux/action/actions';
 import { useParams } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,6 +33,9 @@ function EditUser() {
         let { name, value } = e.target;
         setState({ ...state, [name]: value })
     }
+    useEffect(() => {
+        dispatch(getSingleUser(id))
+    }, [])
 
     let onHandleSubmit = (e) => {
         e.preventDefault()
