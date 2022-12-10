@@ -12,7 +12,7 @@ const userAdded = ()=> ({
 });
 const getUer = (user)=> ({
     type: types.GET_SINGLE_USER,
-    payload: user
+    payload: user,
 });
 
 export const loaderUsers  = () => {

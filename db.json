@@ -1,25 +1,32 @@
 {
   "users": [
     {
-      "name": "Adam",
-      "address": "London",
-      "email": "addam@gmail.com",
-      "contact": "836767",
-      "id": 1
-    },
-    {
-      "name": "Bangsi",
-      "email": "bangsir61@gmail.com",
-      "contact": "65326565",
-      "address": "Ange Raphaël",
-      "id": 2
-    },
-    {
       "name": "Sammy",
       "email": "sammy",
       "contact": "62356562658",
       "address": "Neuvelle Route ",
       "id": 3
+    },
+    {
+      "name": "bangsir61@gmail.com",
+      "email": "bangsir61@gmail.cm",
+      "address": "Ange Raphaël, Nouvelle route cité sic",
+      "contact": "7854",
+      "id": 4
+    },
+    {
+      "name": "bangsir61@gmail.com",
+      "email": "bangsir61@gmail.cm",
+      "address": "Ange Raphaël, Nouvelle route cité sic",
+      "contact": "7854",
+      "id": 5
+    },
+    {
+      "name": "bangsir61@gmail.com",
+      "email": "bangsir61@gmail.cm",
+      "address": "Ange Raphaël, Nouvelle route cité sic",
+      "contact": "7854",
+      "id": 6
     }
   ]
 }

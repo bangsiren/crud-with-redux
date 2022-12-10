@@ -81,7 +81,7 @@ function Home() {
     return(
         <div>
             <div className={buttonStyles.root}>
-                <Button onClick={()=>navigate('/addUser')} variant="contained" color="primary">Add User</Button>
+                {/* <Button onClick={()=>navigate('/addUser')} variant="contained" color="primary">Add User</Button> */}
             </div>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">

@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { addUser, getSingleUser } from '../redux/action/actions';
 import { useParams } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
@@ -24,9 +24,11 @@ function EditUser() {
         contact: "",
         address: ""
     });
-
     let [error, setError] = useState("");
     let { id } = useParams();
+
+    let {user} = useSelector((st) => st.data);
+ 
     let dispatch = useDispatch();
     const { name, email, contact, address } = state;
     const onHandleChnge = (e) => {
@@ -35,8 +37,14 @@ function EditUser() {
     }
     useEffect(() => {
         dispatch(getSingleUser(id))
-    }, [])
+    }, []);
 
+    useEffect(() => {
+       if(user){
+        setState({...user})
+       }
+    }, [user])
+   
     let onHandleSubmit = (e) => {
         e.preventDefault()
         if (!name || !email || !contact || !address) {
@@ -51,11 +59,11 @@ function EditUser() {
             <h2>Edit User</h2>
             {error && <h3 style={{ color: 'red' }}>{error}</h3>}
             <form className={classes.root} onSubmit={onHandleSubmit} noValidate autoComplete="off">
-                <TextField onChange={onHandleChnge} name="name" id="standard-basic" label="Name" value={name} type="text" /> <br></br>
-                <TextField onChange={onHandleChnge} name="email" id="standard-basic" label="Email" value={email} type="email" /> <br></br>
-                <TextField onChange={onHandleChnge} name="contact" id="standard-basic" label="Contact" value={contact} type="number" /> <br></br>
-                <TextField onChange={onHandleChnge} name="address" id="standard-basic" label="Address" value={address} type="text" /> <br></br>
-                <Button style={{ width: '100px' }} variant="contained" type='submit' color="primary">update</Button>
+                <TextField onChange={onHandleChnge} name="name" id="standard-basic" label="Name" value={name || ""} type="text" /> <br></br>
+                <TextField onChange={onHandleChnge} name="email" id="standard-basic" label="Email" value={email || ""} type="email" /> <br></br>
+                <TextField onChange={onHandleChnge} name="contact" id="standard-basic" label="Contact" value={contact || ""} type="number" /> <br></br>
+                <TextField onChange={onHandleChnge} name="address" id="standard-basic" label="Address" value={address || ""} type="text" /> <br></br>
+                <Button onChange={onHandleChnge} style={{ width: '100px' }} variant="contained" type='submit' color="primary">update</Button>
             </form>
         </div>
     );
