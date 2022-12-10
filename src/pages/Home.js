@@ -77,7 +77,7 @@ function Home() {
             dispatch(deleteUser(id));
         }
     } 
-    
+
     return(
         <div>
             <div className={buttonStyles.root}>
@@ -107,7 +107,7 @@ function Home() {
                                     <div className={buttonStyles.root}>
                                         <ButtonGroup variant="contained" aria-label="contained primary button group">
                                             <Button onClick={() => handleDelete(user.id)} style={{ marginRight: "5px" }} color="secondary">Delete</Button>
-                                            <Button color="primary">Update</Button>
+                                            <Button onClick={()=> navigate(`/editUser/${user.id}`)} color="primary">Update</Button>
                                         </ButtonGroup>
                                     </div>
                                 </StyledTableCell>

@@ -9,7 +9,11 @@ const userDeleted = ()=> ({
 });
 const userAdded = ()=> ({
     type: types.ADD_USER
-})
+});
+const getUer = ()=> ({
+    type: types.GET_SINGLE_USER
+});
+
 export const loaderUsers  = () => {
     return function (dispatch) {
        axios.get(`${process.env.REACT_APP_API}`).then((resp) =>{
@@ -34,6 +38,15 @@ export const addUser = (user) => {
         console.log("data", resp);
         dispatch(userAdded());
         dispatch(loaderUsers())
+       }).catch(error => console.log(error));
+    }
+}
+
+export const getSingleUser = (id) => {
+    return function (dispatch) {
+       axios.get(`${process.env.REACT_APP_API}/${id}`).then((resp) =>{
+        console.log("data", resp);
+        dispatch(getUer(resp.data));
        }).catch(error => console.log(error));
     }
 }
