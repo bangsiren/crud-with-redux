@@ -31,9 +31,8 @@ function AddUser() {
     const { name, email, contact, address } = state;
 
     const onHandleChnge = (e) => {
-        let { name, email, contact, address } = e.target;
-        setState({ ...state, name, email, contact, address })
-        console.log("THIS IS FOR TESTINF TO SEE IF WE ARE GOOD TO GO", { name, email, contact, address })
+        let { name, value } = e.target;
+        setState({ ...state, [name]: value })
     }
 
     let onHandleSubmit = (e) => {
