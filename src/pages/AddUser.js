@@ -25,11 +25,15 @@ function AddUser() {
     });
 
     let [error, setError] = useState("");
+
     let dispatch = useDispatch();
+
     const { name, email, contact, address } = state;
+
     const onHandleChnge = (e) => {
-        let { name, value } = e.target;
-        setState({ ...state, [name]: value })
+        let { name, email, contact, address } = e.target;
+        setState({ ...state, name, email, contact, address })
+        console.log("THIS IS FOR TESTINF TO SEE IF WE ARE GOOD TO GO", { name, email, contact, address })
     }
 
     let onHandleSubmit = (e) => {
@@ -41,6 +45,7 @@ function AddUser() {
             setError("");
         }
     }
+    
     return (
         <div>
             <h2>Add Users</h2>

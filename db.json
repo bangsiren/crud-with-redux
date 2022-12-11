@@ -1,32 +1,3 @@
 {
-  "users": [
-    {
-      "name": "Sammy",
-      "email": "sammy",
-      "contact": "62356562658",
-      "address": "Neuvelle Route ",
-      "id": 3
-    },
-    {
-      "name": "bangsir61@gmail.com",
-      "email": "bangsir61@gmail.cm",
-      "address": "Ange Raphaël, Nouvelle route cité sic",
-      "contact": "7854",
-      "id": 4
-    },
-    {
-      "name": "bangsir61@gmail.com",
-      "email": "bangsir61@gmail.cm",
-      "address": "Ange Raphaël, Nouvelle route cité sic",
-      "contact": "7854",
-      "id": 5
-    },
-    {
-      "name": "bangsir61@gmail.com",
-      "email": "bangsir61@gmail.cm",
-      "address": "Ange Raphaël, Nouvelle route cité sic",
-      "contact": "7854",
-      "id": 6
-    }
-  ]
+  "users": []
 }

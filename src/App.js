@@ -7,7 +7,7 @@ import EditUser from './pages/EditUser';
 function App() {
   return (
     <div className="App">
-      {/* <AddUser/> */}
+      <AddUser/>
       <EditUser/>
       <Home />
     </div>

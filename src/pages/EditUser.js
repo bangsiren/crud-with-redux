@@ -24,6 +24,7 @@ function EditUser() {
         contact: "",
         address: ""
     });
+    
     let [error, setError] = useState("");
     let { id } = useParams();
 
