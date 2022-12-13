@@ -6,15 +6,14 @@ import AddUser from './pages/AddUser';
 import EditUser from './pages/EditUser';
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Home />
-        <Route>
-          <AddUser />
-          <EditUser />
-        </Route>
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <NavLink exact to='adduser'><a>Add User</a></NavLink>
+        <Route exact path='/'><Home/></Route>
+        <Route exact path='/adduser'><AddUser/></Route>
+        <Route exact path='/adduser'><EditUser/></Route>
+      </div>
+    </Router>
   );
 }
 

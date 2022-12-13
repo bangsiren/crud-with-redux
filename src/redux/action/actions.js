@@ -23,6 +23,7 @@ export const loaderUsers  = () => {
        }).catch(error => console.log(error));
     }
 }
+
 export const deleteUser = (id) => {
     return function (dispatch) {
        axios.delete(`${process.env.REACT_APP_API}/${id}`).then((resp) =>{
