@@ -1,3 +1,11 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Bangsi",
+      "email": "bangsir61@gmail.com",
+      "contact": "677898967",
+      "address": "Ange Raphaël, Nouvelle route cité sic",
+      "id": 1
+    }
+  ]
 }

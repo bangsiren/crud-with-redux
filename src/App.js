@@ -1,15 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Home from './pages/Home';
 import AddUser from './pages/AddUser';
 import EditUser from './pages/EditUser';
 function App() {
   return (
     <div className="App">
-      <AddUser/>
-      <EditUser/>
-      <Home />
+      <Router>
+        <Home />
+        <Route>
+          <AddUser />
+          <EditUser />
+        </Route>
+      </Router>
     </div>
   );
 }
