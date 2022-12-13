@@ -62,7 +62,7 @@ function EditUser() {
             <form className={classes.root} onSubmit={onHandleSubmit} noValidate autoComplete="off">
                 <TextField onChange={onHandleChnge} name="name" id="standard-basic" label="Name" value={name || ""} type="text" /> <br></br>
                 <TextField onChange={onHandleChnge} name="email" id="standard-basic" label="Email" value={email || ""} type="email" /> <br></br>
-                <TextField onChange={onHandleChnge} name="contact" id="standard-basic" label="Contact" value={contact || ""} type="number" /> <br></br>
+                <TextField onChange={onHandleChnge} name="contact" i d="standard-basic" label="Contact" value={contact || ""} type="number" /> <br></br>
                 <TextField onChange={onHandleChnge} name="address" id="standard-basic" label="Address" value={address || ""} type="text" /> <br></br>
                 <Button onChange={onHandleChnge} style={{ width: '100px' }} variant="contained" type='submit' color="primary">update</Button>
             </form>
