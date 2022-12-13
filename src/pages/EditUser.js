@@ -3,10 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { useDispatch, useSelector} from 'react-redux';
-import { addUser, getSingleUser } from '../redux/action/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSingleUser, updateUser } from '../redux/action/actions';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
@@ -24,13 +24,14 @@ function EditUser() {
         contact: "",
         address: ""
     });
-    
+
     let [error, setError] = useState("");
     let { id } = useParams();
 
-    let {user} = useSelector((st) => st.data);
- 
+    let { user } = useSelector((st) => st.data);
+
     let dispatch = useDispatch();
+    let navigate = useNavigate()
     const { name, email, contact, address } = state;
     const onHandleChnge = (e) => {
         let { name, value } = e.target;
@@ -41,18 +42,20 @@ function EditUser() {
     }, []);
 
     useEffect(() => {
-       if(user){
-        setState({...user})
-       }
+        if (user) {
+            setState({ ...user })
+        }
     }, [user])
-   
+
     let onHandleSubmit = (e) => {
         e.preventDefault()
         if (!name || !email || !contact || !address) {
             setError("Pease input all inouts field")
         } else {
-            dispatch(addUser(state));
             setError("");
+            dispatch(updateUser(state, id));
+            navigate('/');
+
         }
     }
     return (
