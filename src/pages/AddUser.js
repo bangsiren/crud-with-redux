@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/action/actions';
 const useStyles = makeStyles((theme) => ({
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AddUser() {
+    const navigate = useNavigate()
     const classes = useStyles();
     let [state, setState] = useState({
         name: "",
@@ -40,11 +42,12 @@ function AddUser() {
         if (!name || !email || !contact || !address) {
             setError("Pease input all inouts field")
         } else {
-            dispatch(addUser(state));
             setError("");
+            dispatch(addUser(state));
+            navigate('/');
         }
     }
-    
+
     return (
         <div>
             <h2>Add Users</h2>

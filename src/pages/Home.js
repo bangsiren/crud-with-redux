@@ -81,7 +81,7 @@ function Home() {
     return(
         <div>
             <div className={buttonStyles.root}>
-                {/* <Button onClick={()=>navigate('/addUser')} variant="contained" color="primary">Add User</Button> */}
+                <Button onClick={()=>navigate('/add-user')} variant="contained" color="primary">Add User</Button>
             </div>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
@@ -107,7 +107,7 @@ function Home() {
                                     <div className={buttonStyles.root}>
                                         <ButtonGroup variant="contained" aria-label="contained primary button group">
                                             <Button onClick={() => handleDelete(user.id)} style={{ marginRight: "5px" }} color="secondary">Delete</Button>
-                                            <Button onClick={()=> navigate(`/editUser/${user.id}`)} color="primary">Update</Button>
+                                            <Button onClick={()=> navigate(`/edit-user/${user.id}`)} color="primary">Update</Button>
                                         </ButtonGroup>
                                     </div>
                                 </StyledTableCell>

@@ -6,6 +6,20 @@
       "contact": "677898967",
       "address": "Ange Raphaël, Nouvelle route cité sic",
       "id": 1
+    },
+    {
+      "name": "Tang",
+      "email": "tangrene@gmail.com",
+      "contact": "546222",
+      "address": "Ange Raphaël, Nouvelle route cité sic",
+      "id": 2
+    },
+    {
+      "name": "Sama",
+      "email": "sama@gmail.com",
+      "contact": "5411821",
+      "address": "Sen",
+      "id": 3
     }
   ]
 }

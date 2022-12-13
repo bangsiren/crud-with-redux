@@ -1,19 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import AddUser from './pages/AddUser';
 import EditUser from './pages/EditUser';
+
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
-        <NavLink exact to='adduser'><a>Add User</a></NavLink>
-        <Route exact path='/'><Home/></Route>
-        <Route exact path='/adduser'><AddUser/></Route>
-        <Route exact path='/adduser'><EditUser/></Route>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/add-user' element={<AddUser />} />
+          <Route exact path='/edit-user/:id' element={<EditUser />} />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
+
   );
 }
 
