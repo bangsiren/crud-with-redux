@@ -1,5 +1,6 @@
 import * as types from './actionType';
 import axios from 'axios';
+
 const getUsers = (users)=> ({
     type: types.GET_USERS,
     payload: users
