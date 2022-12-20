@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(1)
-            width: '60ch'
+            margin: theme.spacing(1),
+            width: '60ch',
         },
     },
 }));
