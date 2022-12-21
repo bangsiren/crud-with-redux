@@ -50,7 +50,7 @@ function EditUser() {
     let onHandleSubmit = (e) => {
         e.preventDefault()
         if (!name || !email || !contact || !address) {
-            setError("Pease input all inouts fields")
+            setError("Pease input all inputs fields")
         } else {
             setError("");
             dispatch(updateUser(state, id));
